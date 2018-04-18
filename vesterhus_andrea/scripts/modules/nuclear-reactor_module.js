@@ -15,13 +15,25 @@ const nuclearReactorModule = (function(){
         }
     }
 
+    const reactorListJSON = { reactors: [
+        {"id": 1, "name": "Nuclear Reactor 1"}, {"id": 2, "name": "Nuclear Reactor 2"}
+    ]};
+
+    function getReactors() {
+        return reactorListJSON.reactors;
+    }
     //Returnerer nummer mellom 50 og 60
     function getValueNumber() {
-        let num = Math.floor(Math.random() * 21) + 50;
+        let num = Math.floor(Math.random() * 100) + 250;
         return num;
+        console.log(num);
+    }
+    function getWidth(number) {
+        let width = (100 / 500) * number;
+        return width;
     }
     return {
-        checkLogin, getValueNumber
+        checkLogin, getReactors, getValueNumber, getWidth
     }
 
 })();
