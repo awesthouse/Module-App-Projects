@@ -4,6 +4,7 @@ const NuclearReactorApp = {
     htmlWrap: null,
     titleWrap: null,
     loginWrap: null,
+    reactorsWrap: null,
 
     //LOGIN
     unInput: null,
@@ -29,6 +30,7 @@ const NuclearReactorApp = {
              NRA.htmlWrap = $('<div>');
              NRA.titleWrap = $('<h2>');
              NRA.loginWrap = $('<div>');
+             NRA.reactorsWrap = $('<div>');
 
              //LOGIN
              NRA.unInput = $('<input>');
@@ -57,7 +59,9 @@ const NuclearReactorApp = {
             //APPEND TIL HTMLWRAP
             NRA.htmlWrap.append(NRA.titleWrap);
             NRA.htmlWrap.append(NRA.loginWrap);
-            NRA.loginWrap.hide();
+            NRA.htmlWrap.append(NRA.reactorsWrap);
+            NRA.reactorsWrap.hide();
+            //NRA.loginWrap.hide();
             printReactors();
         }();
 
@@ -68,7 +72,7 @@ const NuclearReactorApp = {
                 let passwordVal = NRA.pwInput.val();
                 if(nuclearReactorModule.checkLogin(usernameVal, passwordVal)){
                     NRA.loginWrap.fadeOut();
-                    NRA.reactorWrap.fadeIn();
+                    NRA.reactorsWrap.fadeIn();
                 } else{
                     alert("Sorry, you have entered an invalid username or password");
                 }
@@ -137,7 +141,7 @@ const NuclearReactorApp = {
                 reactorWrap.append(reactorTitle);
                 reactorWrap.append(onButtonWrap);
                 reactorWrap.append(reactorInfoWrap);
-                NRA.htmlWrap.append(reactorWrap);
+                NRA.reactorsWrap.append(reactorWrap);
 
                 //EVENTS
                 onButtonWrap.on("click", function(){
@@ -170,9 +174,12 @@ const NuclearReactorApp = {
                         levelsInside.animate({
                             width: "0%"
                         }, 1300);
+                        degreesTitle.html("");
                     }
                 }); //END OF FUNCTION
                 increaseBtn.on("click", function() {
+                    let btnState = $(onButtonWrap).attr("state");
+                    if(btnState == "on") {
                     let numberValue = parseInt(setChangeNumber.val());
                     if(numberValue > 0 && numberValue <= 100) {
                         let oldNumber = parseInt(degreesTitle.html());
@@ -199,9 +206,12 @@ const NuclearReactorApp = {
                     } else {
                         alert("Please choose a number between '0' and '100'");
                     }
+                    }
                 }); //END OF INCREASEBTN
 
                 decreaseBtn.on("click", function() {
+                    let btnState = $(onButtonWrap).attr("state");
+                    if(btnState == "on") {
                     let numberValue = parseInt(setChangeNumber.val());
                     if(numberValue > 0 && numberValue <= 100) {
                         let oldNumber = parseInt(degreesTitle.html());
@@ -227,6 +237,7 @@ const NuclearReactorApp = {
                         console.log(newNumber);
                     } else {
                         alert("Please choose a number between '0' and '100'");
+                    }
                     }
                 }); //END OF INCREASEBTN
             });
