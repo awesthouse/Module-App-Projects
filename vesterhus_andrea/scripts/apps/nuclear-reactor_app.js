@@ -129,7 +129,6 @@ const NuclearReactorApp = {
                 decreaseBtn.css({float: "left", position: "relative", padding: "10px", backgroundColor: "#fff", color: "#222", marginLeft: "20px", marginTop: "2px", cursor: "pointer"});
                 degreesTitle.css({clear: "both", position: "relative", paddingTop: "20px", fontSize: "22px"});
 
-
                 //APP GUI
                 reactorLevels.append(levelsInside);
                 reactorInfoWrap.append(reactorLevels);
@@ -177,6 +176,7 @@ const NuclearReactorApp = {
                         degreesTitle.html("");
                     }
                 }); //END OF FUNCTION
+
                 increaseBtn.on("click", function() {
                     let btnState = $(onButtonWrap).attr("state");
                     if(btnState == "on") {
@@ -255,7 +255,7 @@ const NuclearReactorApp = {
             } else if (degreesNumber > 420) {
                 return "red";
             } 
-        }
+        } //END OF FUNCTION setBackgroundColor
 
         return NRA.htmlWrap;
     }

@@ -26,6 +26,7 @@ const HeartbookApp = {
         const HA = HeartbookApp;
 
         const setHTMLObjects = function(){
+            //SET DIVS
             HA.htmlWrap = $('<div>');
             HA.siteTitle = $('<h2>');
             HA.usersWrap = $('<div>');
@@ -37,8 +38,6 @@ const HeartbookApp = {
             HA.singleUserName = $('<p>');
             HA.singleUserImg = $('<img>')
             HA.singleUserWrap = $('<div>');
-
-            
 
             //SELECT for alle profiler, menn eller kvinner
             options = [
@@ -57,16 +56,17 @@ const HeartbookApp = {
             HA.backButton.html(HA.backString);
 
             HA.backButton.hide();
+
             //APPEND TIL WRAPPERS
             HA.htmlWrap.append(HA.siteTitle);
             HA.htmlWrap.append(HA.backButton);
             HA.htmlWrap.append(HA.selectBox);
-            createUsers();
+            createUsers(); //KALLER PÅ FUNCTION createUsers
             HA.htmlWrap.append(HA.usersWrap);
         }();
 
         const setEvents = function() {
-            //FUNCTION FOR Å 
+            //FUNCTION FOR SELCTBOXEN - HENTE KATEGORIER
             HA.selectBox.on("change", function(){
                 let selectValue = $(this).val();
                 if(selectValue == 1) {
@@ -240,7 +240,7 @@ const HeartbookApp = {
             HA.singleUserWrap.append(HA.singleUserImg);
             HA.singleUserWrap.append(HA.singleUserInfoWrap);
             HA.usersWrap.append(HA.singleUserWrap);
-        }
+        } //END OF PRINTSINGLEUSER FUNCTION
 
         return HA.htmlWrap;
     }

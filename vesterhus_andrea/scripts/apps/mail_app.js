@@ -267,7 +267,7 @@ const MailApp = {
                     updateCount();
                 });
             });
-        }
+        } //END OF FUNCTION PRINTMAILS
 
         //FUNCTION FOR Å PRINTE MAILER TIL 'LESTE MAILER'
         function printReadMails() {
@@ -344,7 +344,7 @@ const MailApp = {
                     updateCount();
                 });
             });
-        }
+        } //END OF FUNCTION PRINTREADMAILS
 
         //FUNCTION FOR Å PRINTE MAILER TIL 'ULESTE MAILER'
         function printUnreadMails() {
@@ -418,7 +418,7 @@ const MailApp = {
                     updateCount();
                 });
             });
-        }
+        } //END OF FUNCTION PRINTUNREADMAILS
 
         //FUNCTION FOR Å PRINTE SLETTEDE MAILER
         function printDeletedMails() {
@@ -495,7 +495,7 @@ const MailApp = {
                     updateCount();
                 });
             });
-        }
+        } //END OF FUNCTION PRINTDELETEDMAILS
 
         //FUNCTION FOR Å OPPDATERE INT SOM VISER ANTALL ULESTE MAILER
         function updateCount(){
@@ -507,7 +507,8 @@ const MailApp = {
                 MA.inboxTitle.css({fontWeight: "400"});
                 MA.inboxTitle.html(MA.inboxString);
             }
-        }
+        } //END OF FUNCTION UPDATECOUNT
+        
         return MA.htmlWrap;
     }
  }

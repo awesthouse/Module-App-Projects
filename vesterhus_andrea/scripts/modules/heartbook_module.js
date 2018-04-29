@@ -1,5 +1,6 @@
 const getUsersModule = (function(){ 
 
+    //JSON ARRAY MED USERS
     const usersJSON = { users: [
         {"id": 1, "firstname": "Randi", "lastname": "Olsen", "age": 23, "profileimg": "randi.jpg", "sex": "kvinne", "pref": "menn", "description": "23 år fra Sandefjord."}, 
         {"id": 2, "firstname": "Tone", "lastname": "Kolby", "age": 24, "profileimg": "tone.jpg", "sex": "kvinne", "pref": "kvinner", "description": "24 år fra Oslo."}, 
@@ -11,15 +12,17 @@ const getUsersModule = (function(){
         {"id": 8, "firstname": "Mark", "lastname": "Larssen", "age": 26, "profileimg": "mark.jpg", "sex": "mann", "pref": "kvinner", "description": "Oslo. Student på BI."} 
     ]};
 
+    //TOMME ARRAYS
     const maleUsersJSON = [];
     const femaleUsersJSON = [];
     const singleUserJSON = [];
 
+    //FUNCTION - RETURNERER ALLE USERS
     function getAllUsers(){
         return usersJSON.users;
-        console.log("getAllUsers()");
     }
 
+    //FUNCTION - RETURNERER MALE USERS
     function getMaleUsers(){
         maleUsersJSON.length = 0;
         for(i = 0; i < usersJSON.users.length; i++) {
@@ -31,6 +34,7 @@ const getUsersModule = (function(){
         return maleUsersJSON;
     }
 
+    //FUNCTION - RETURNERER FEMALE USERS
     function getFemaleUsers(){
         femaleUsersJSON.length = 0;
         for(i = 0; i < usersJSON.users.length; i++) {
@@ -41,6 +45,7 @@ const getUsersModule = (function(){
         return femaleUsersJSON;
     }
 
+    //FUNCTION RETURNERER UTVALGT USER
     function getUser(userid){
         singleUserJSON.length = 0;
         for(i = 0; i < usersJSON.users.length; i++) {
@@ -50,8 +55,6 @@ const getUsersModule = (function(){
         }
         return singleUserJSON;
     }
-
-    console.log("TEST MODULE working")
 
     return {
         getAllUsers, getMaleUsers, getFemaleUsers, getUser

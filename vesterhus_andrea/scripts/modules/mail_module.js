@@ -133,8 +133,6 @@ const getMailsModule = (function(){
         return deletedMailListJSON;
     }
 
-    console.log("TEST: MODULE working");
-
     return {
         checkLogin, getMailAddress, getAllMails, getUnreadMails, getReadMails, getMail, setRead, markAsUnread, getUnreadMailsCount, deleteMail, getDeletedMails
     }
